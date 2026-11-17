@@ -174,7 +174,7 @@ details[open] .chev{transform:rotate(180deg)}
 
 <section class="how" aria-labelledby="h-how">
   <h2 id="h-how">부스터가 하는 일</h2>
-  <p>폰의 엔진(CPU·GPU) 자체를 더 빠르게 만드는 앱은 없어요. 대신 자동차처럼, 이미 가진 힘을 끝까지 쓰게 만들 수는 있어요.</p>
+  <p>폰의 엔진(계산을 맡는 칩) 자체를 더 빠르게 만드는 앱은 없어요. 대신 자동차처럼, 이미 가진 힘을 끝까지 쓰게 만들 수는 있어요.</p>
   <dl class="map">
     <dt class="hd">자동차라면</dt><dd class="hd">폰에서는</dd>
     <dt>에코 모드 끄기</dt><dd>절전 모드, 낮은 화면 주사율</dd>
@@ -222,14 +222,14 @@ details[open] .chev{transform:rotate(180deg)}
     <div class="stat"><b id="wSd">--</b><span>흔들림</span></div>
     <div class="stat"><b id="wHit">--</b><span>맞춘 박자</span></div>
   </div>
-  <p id="wVerdict" class="sub">한 번 해보면 결과가 여기에 나와요.</p>
+  <p id="wVerdict" class="sub">한 번 해보면 결과가 여기에 나와요. 1밀리초는 1000분의 1초예요.</p>
 </section>
 
 <section aria-labelledby="h-my">
   <h2 id="h-my">안 해도 되는 것</h2>
   <ul class="myth">
     <li><svg class="ic"><use href="#i-x"/></svg><div><b>"메모리 청소" 부스터 앱</b><span>정리하자마자 폰이 앱을 다시 불러오느라 더 바빠져요. 냉장고를 매일 비웠다가 다시 장 보는 것과 같아요. 부스터 앱이 계속 켜져 있는 것도 손해예요.</span></div></li>
-    <li><svg class="ic"><use href="#i-x"/></svg><div><b>개발자 옵션의 <code>4x MSAA</code> 켜기</b><span>그래픽을 오히려 더 무겁게 만드는 설정이에요. 켜져 있다면 끄세요.</span></div></li>
+    <li><svg class="ic"><use href="#i-x"/></svg><div><b>개발자 옵션의 <code>4x MSAA</code>(그래픽 강제 보정) 켜기</b><span>그래픽을 오히려 더 무겁게 만드는 설정이에요. 켜져 있다면 끄세요.</span></div></li>
     <li><svg class="ic"><use href="#i-x"/></svg><div><b>개발자 옵션의 <code>애니메이션 배율</code> 끄기</b><span>메뉴가 빨리 넘어가 보일 뿐, 게임 속 프레임은 그대로예요.</span></div></li>
   </ul>
 </section>
@@ -254,7 +254,7 @@ const C=(id,t,imp,why,steps,m=[])=>({id,t,imp,why,steps,m});
 const heat=C('heat','발열 막기',3,'폰은 뜨거워지면 스스로 속도를 낮춰요. 더운 날 마라톤 선수가 페이스를 줄이는 것과 같아요. 처음엔 괜찮다가 10~20분 뒤부터 끊긴다면 대부분 이것 때문이에요.',['두꺼운 케이스는 빼고 플레이','충전하면서 하지 않기 (꼭 해야 하면 고속 충전 끄기)','이불이나 쿠션 위, 햇빛 아래는 피하기','폰이 따뜻하면 5분 쉬고, 위 <code>발열</code> 측정이 90% 이상으로 돌아오면 다시 시작'],['heat','batt','frame']);
 const dndWhy='레벨 도중에 알림 배너가 뜨면 화면을 가리고 순간적으로 프레임이 튀어요. 99%에서 메시지 알림 때문에 죽는 건 너무 억울하잖아요.';
 const audio=C('audio','블루투스 이어폰 빼기',2,'블루투스 이어폰(에어팟 포함)은 소리가 0.1~0.3초 늦게 들려요. 음악 박자에 맞춰 뛰는 구간에서 계속 늦게 누르게 되는 이유가 이거일 수 있어요.',['유선 이어폰이나 폰 스피커로 플레이','아래 <code>타이밍 워밍업</code>에서 계속 "늦음"이 나오면 한 번 의심해보세요']);
-const ldm=C('ldm','게임 안 그래픽 가볍게',2,'장식이 많은 레벨은 좋은 폰에서도 끊겨요. 게임에 들어 있는 가벼운 모드를 쓰면 화면이 단순해져서 프레임이 안정돼요.',['레벨 정보 화면에 <code>Low Detail Mode</code>(LDM) 체크칸이 있으면 켜기','옵션에 화면 부드러움 관련 항목(<code>Smooth Fix</code> 등)이 있으면 켰을 때와 껐을 때 같은 구간을 해보고 더 나은 쪽 고르기'],['frame']);
+const ldm=C('ldm','게임 안 그래픽 가볍게',2,'장식이 많은 레벨은 좋은 폰에서도 끊겨요. 게임에 들어 있는 가벼운 모드를 쓰면 화면이 단순해져서 프레임이 안정돼요.',['레벨 정보 화면에 <code>Low Detail Mode</code>(저사양 모드) 체크칸이 있으면 켜기. 게임 메뉴가 영어라서 이름을 그대로 적었어요','옵션에 화면 부드러움 관련 항목(<code>Smooth Fix</code> 등)이 있으면 켰을 때와 껐을 때 같은 구간을 해보고 더 나은 쪽 고르기'],['frame']);
 const apps=C('apps','무거운 앱만 닫기',1,'자동차 트렁크의 짐을 빼는 것과 같아요. 다만 매번 전부 닫는 건 손해예요. 앱을 다시 켤 때 오히려 힘을 더 써요.',['최근 앱 화면에서 다른 게임, 카메라, 영상 앱만 닫기','오래 플레이하기 전엔 폰을 한 번 재시작하기. 이게 가장 확실한 정리예요','저장 공간은 10% 이상 비워두기'],['frame']);
 const CL={
   a:[
@@ -262,7 +262,7 @@ const CL={
     C('hz','화면 주사율 최대로',3,'주사율은 1초에 화면을 몇 장 그리는지예요. 플립북으로 치면 60Hz는 1초에 60장, 120Hz는 120장이에요. 장수가 많을수록 장애물이 부드럽고 빨리 보여서 타이밍 잡기가 쉬워져요.',['<code>설정</code> 검색창에 <code>주사율</code> 또는 <code>화면 움직임</code> 검색','삼성: <code>화면 움직임 부드럽게</code> → <code>적응형</code> 또는 <code>높음</code>','샤오미·기타: <code>주사율</code>(새로고침 빈도) → 가장 높은 값','목록에 60Hz만 있으면 이미 최대예요. 넘어가도 돼요'],['hz','frame']),
     heat,
     C('dnd','방해 금지 켜기',2,dndWhy,['빠른 설정창 → <code>방해 금지</code> 켜기','플레이가 끝나면 다시 끄는 것 잊지 않기']),
-    C('mode','게임 모드 켜기',2,'제조사 게임 모드는 게임하는 동안 알림을 막고 다른 작업을 줄여줘요.',['삼성: <code>Game Launcher</code>(게임 런처)에 게임이 들어 있는지 확인 → 게임 중 나오는 <code>게임 부스터</code>에서 알림 차단','샤오미: <code>보안</code> 앱 → <code>게임 터보</code>에 게임 추가','그 외: <code>설정</code> 검색창에 <code>게임</code> 검색']),
+    C('mode','게임 모드 켜기',2,'제조사 게임 모드는 게임하는 동안 알림을 막고 다른 작업을 줄여줘요.',['삼성: <code>게임 런처</code>에 게임이 들어 있는지 확인 → 게임 중 나오는 <code>게임 부스터</code>에서 알림 차단','샤오미: <code>보안</code> 앱 → <code>게임 터보</code>에 게임 추가','그 외: <code>설정</code> 검색창에 <code>게임</code> 검색']),
     audio, ldm, apps
   ],
   i:[
@@ -338,7 +338,7 @@ function draw(pos=72){
   const bw=4, max=exp*3, arr=data.slice(-Math.floor(w/bw));
   arr.forEach((d,i)=>{const bh=Math.min(d,max)/max*ch; g.fillStyle=d>exp*1.6?K.bad:K.data; g.fillRect(i*bw,top+ch-bh,bw-1,bh);});
   const y=Math.round(top+ch-exp/max*ch)+.5; line(y,w,K.accent,1);
-  g.fillStyle=K.mute; g.fillText(`목표 ${exp.toFixed(1)}ms`,4,y-5);
+  g.fillStyle=K.mute; g.fillText(`목표 간격 ${exp.toFixed(1)}밀리초`,4,y-5);
 }
 const redraw=()=>{colors(); draw();};
 colors(); new ResizeObserver(fit).observe(cv);
@@ -374,7 +374,7 @@ const T={
     draw();
     const d=data.slice(5), drops=d.filter(x=>x>exp*1.6).length, sm=1-drops/d.length;
     const low=Math.round(1000/[...d].sort((a,b)=>a-b)[Math.floor(d.length*.99)]);
-    const val=(sm*100).toFixed(1)+'%', v=clamp((sm-.85)/.13), tail=` 가장 느렸던 순간 ${low}fps.`;
+    const val=(sm*100).toFixed(1)+'%', v=clamp((sm-.85)/.13), tail=` 가장 느렸던 순간엔 1초에 ${low}장만 그렸어요.`;
     if(sm>=.98) return {val,st:'ok',v,fix:`5초 동안 ${drops}번 끊겼어요. 아주 매끄러워요.`+tail};
     if(sm>=.93) return {val,st:'warn',v,fix:`5초 동안 ${drops}번 끊겼어요. 무거운 앱을 닫고 다시 재보세요.`+tail};
     return {val,st:'bad',v,fix:`5초 동안 ${drops}번 끊겼어요. 절전 모드와 발열부터 확인하세요.`+tail};
@@ -490,8 +490,8 @@ function endW(){
   $('#wHit').textContent=n+'/16';
   if(n<6){$('#wVerdict').textContent='탭이 많이 빠졌어요. 고리가 상자에 닿는 순간 탭해보세요.'; return;}
   const m=avg(o), sd=Math.sqrt(avg(o.map(x=>(x-m)**2)));
-  $('#wAvg').textContent=Math.abs(m)<8?'정확':`${Math.round(Math.abs(m))}ms ${m<0?'빠름':'늦음'}`;
-  $('#wSd').textContent='±'+Math.round(sd)+'ms';
+  $('#wAvg').textContent=Math.abs(m)<8?'정확':`${Math.round(Math.abs(m))}밀리초 ${m<0?'빠름':'늦음'}`;
+  $('#wSd').textContent='±'+Math.round(sd)+'밀리초';
   let v=sd<20?'아주 일정해요. 어려운 레벨 바로 가도 돼요.':sd<35?'좋아요. 손이 풀렸어요.':sd<55?'조금 흔들려요. 한 번 더 하면 좋아져요.':'흔들림이 커요. 느리게로 바꿔서 다시 해보세요.';
   if(m>70&&snd.checked) v+=' 계속 늦게 누른다면 블루투스 이어폰의 소리 지연일 수 있어요.';
   $('#wVerdict').textContent=v;
